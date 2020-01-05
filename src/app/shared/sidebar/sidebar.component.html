@@ -17,25 +17,78 @@
                 <a href="#" class="d-block">Geovany Ocaña</a>
             </div>
         </div>
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <!-- Add icons to the links using the .nav-icon class
+                       with font-awesome or any other icon font library -->
+                <li class="nav-item has-treeview" *ngFor="let menu of _sidebar.menu">
 
+                    <a href="#" class="nav-link">
+
+
+                        <i class="nav-icon fas fa-users-cog"></i>
+                        <p> Administración
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+
+                        <li class="nav-item">
+                            <a href="../../index.html" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Opción 1</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="../../index2.html" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Opción 2</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a routerLink="/login" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Logout</p>
+                            </a>
+
+                    </ul>
+                    </li>
+            </ul>
+        </nav>
         <!-- Sidebar Menu -->
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
                        with font-awesome or any other icon font library -->
-                <li class="nav-item has-treeview">
+                <li class="nav-item has-treeview" *ngFor="let menu of _sidebar.menu">
+
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
+
+
+                        <i [class]="menu.icono"></i>
                         <p>
-                            Dashboard
+                            {{ menu.titulo }}
                             <i class="right fas fa-angle-left"></i>
                         </p>
+                        <span class="badge badge-primary badge-pill">
+                            {{menu.submenu.length}}
+                        </span>
                     </a>
                     <ul class="nav nav-treeview">
-                        <li class="nav-item">
+
+                        <li class="nav-item" *ngFor="let submenu of menu.submenu">
+
+                            <a routerLinkActive="nav-link active" [routerLink]="[ submenu.url ]">
+                                <p> <i class="far fa-circle nav-icon"> </i> {{submenu.titulo}}
+                                </p>
+                            </a>
+
+                        </li>
+                        <!-- 
+                            <li class="nav-item">
                             <a href="../../index.html" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Dashboard v1</p>
+                            <p>Dashboard v1</p>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -49,7 +102,8 @@
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Dashboard v3</p>
                             </a>
-                        </li>
+                        </li>-->
+
                     </ul>
                 </li>
             </ul>
