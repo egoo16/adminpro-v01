@@ -15,9 +15,12 @@ import {FormsModule} from '@angular/forms';
 import { PAGES_ROUTES } from './pages.routes';
 
 // TEMPORAL
-import { IncrementadorComponent } from '../componets/incrementador/incrementador.component';
-import { GraficoDonaComponent } from '../componets/grafico-dona/grafico-dona.component';
-import { AccountSettingsComponent } from './account-settings/account-settings.component';
+import { IncrementadorComponent } from '../components/incrementador/incrementador.component';
+import { GraficoDonaComponent } from '../components/grafico-dona/grafico-dona.component';
+// import { AccoutSettingsComponent } from './accout-settings/account-settings.component';
+import { PromesasComponent } from './promesas/promesas.component';
+import { RxjsComponent } from './rxjs/rxjs.component';
+import { AccoutSettingsComponent } from './accout-settings/accout-settings.component';
 
 
 
@@ -29,7 +32,9 @@ import { AccountSettingsComponent } from './account-settings/account-settings.co
         Graficas1Component,
         IncrementadorComponent,
         GraficoDonaComponent,
-        AccountSettingsComponent
+        AccoutSettingsComponent,
+        PromesasComponent,
+        RxjsComponent
     ],
     exports: [
         PagesComponent,

@@ -1,114 +1,47 @@
-<!-- Main Sidebar Container -->
-<aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <!-- Brand Logo -->
-    <a href="../../index3.html" class="brand-link">
-        <img src="assets/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">AdminLTE 3</span>
-    </a>
-
-    <!-- Sidebar -->
-    <div class="sidebar">
-        <!-- Sidebar user (optional) -->
-        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-            <div class="image">
-                <img src="assets/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-            </div>
-            <div class="info">
-                <a href="#" class="d-block">Geovany Ocaña</a>
-            </div>
-        </div>
-        <nav class="mt-2">
-            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                <!-- Add icons to the links using the .nav-icon class
-                       with font-awesome or any other icon font library -->
-                <li class="nav-item has-treeview" *ngFor="let menu of _sidebar.menu">
-
-                    <a href="#" class="nav-link">
-
-
-                        <i class="nav-icon fas fa-users-cog"></i>
-                        <p> Administración
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-
-                        <li class="nav-item">
-                            <a href="../../index.html" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Opción 1</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="../../index2.html" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Opción 2</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a routerLink="/login" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Logout</p>
-                            </a>
-
-                    </ul>
-                    </li>
-            </ul>
-        </nav>
-        <!-- Sidebar Menu -->
-        <nav class="mt-2">
-            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                <!-- Add icons to the links using the .nav-icon class
-                       with font-awesome or any other icon font library -->
-                <li class="nav-item has-treeview" *ngFor="let menu of _sidebar.menu">
-
-                    <a href="#" class="nav-link">
-
-
-                        <i [class]="menu.icono"></i>
-                        <p>
-                            {{ menu.titulo }}
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                        <span class="badge badge-primary badge-pill">
-                            {{menu.submenu.length}}
-                        </span>
-                    </a>
-                    <ul class="nav nav-treeview">
-
-                        <li class="nav-item" *ngFor="let submenu of menu.submenu">
-
-                            <a routerLinkActive="nav-link active" [routerLink]="[ submenu.url ]">
-                                <p> <i class="far fa-circle nav-icon"> </i> {{submenu.titulo}}
-                                </p>
-                            </a>
-
-                        </li>
-                        <!-- 
-                            <li class="nav-item">
-                            <a href="../../index.html" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                            <p>Dashboard v1</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="../../index2.html" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Dashboard v2</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="../../index3.html" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Dashboard v3</p>
-                            </a>
-                        </li>-->
-
+<!-- ============================================================== -->
+<!-- Left Sidebar - style you can find in sidebar.scss  -->
+<!-- ============================================================== -->
+<aside class="left-sidebar">
+    <!-- Sidebar scroll-->
+    <div class="scroll-sidebar">
+        <!-- Sidebar navigation-->
+        <nav class="sidebar-nav">
+            <ul id="sidebarnav">
+                <li class="user-profile">
+                    <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><img src="../assets/images/users/profile.png" alt="user" /><span class="hide-menu">Steave Jobs </span></a>
+                    <ul aria-expanded="false" class="collapse">
+                        <li><a href="javascript:void()">My Profile </a></li>
+                        <li><a href="javascript:void()">My Balance</a></li>
+                        <li><a href="javascript:void()">Inbox</a></li>
+                        <li><a routerLinkActive="active" routerLink="/account-settings">Account Setting</a></li>
+                        <li><a routerLink="/login">Logout</a></li>
                     </ul>
                 </li>
+                <li class="nav-devider"></li>
+                <li class="nav-small-cap">PERSONAL</li>
+
+
+                <li *ngFor="let menu of _sidebar.menu">
+                    <a class="has-arrow waves-effect waves-dark" aria-expanded="false"><i [class]="menu.icono"></i><span class="hide-menu"> {{ menu.titulo }} <span class="label label-rouded label-themecolor pull-right"> {{ menu.submenu.length }} </span></span></a>
+                    <ul aria-expanded="false" class="collapse">
+
+                        <li *ngFor="let submenu of menu.submenu">
+                            <a routerLinkActive="active" [routerLink]="[ submenu.url ]"> {{ submenu.titulo }} </a>
+                        </li>
+
+                        <!-- <li><a href="index2.html">Analytical</a></li>
+                        <li><a href="index3.html">Demographical</a></li>
+                        <li><a href="index4.html">Modern</a></li> -->
+                    </ul>
+                </li>
+
+
             </ul>
         </nav>
-        <!-- /.sidebar-menu -->
+        <!-- End Sidebar navigation -->
     </div>
-    <!-- /.sidebar -->
+    <!-- End Sidebar scroll-->
 </aside>
+<!-- ============================================================== -->
+<!-- End Left Sidebar - style you can find in sidebar.scss  -->
+<!-- ============================================================== -->

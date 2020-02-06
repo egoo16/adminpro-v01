@@ -15,26 +15,22 @@ import { ServiceModule } from './services/service.module';
 
 
 
-import { AppRoutingModule } from './app-routing.module';
+
+// Componentes
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-import { PagesComponent } from './pages/pages.component';
 import { RegisterComponent } from './login/register.component';
-// import { GraficoDonaComponent } from './componets/grafico-dona/grafico-dona.component';
-// import { IncrementadorComponent } from './componets/incrementador/incrementador.component';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RegisterComponent,
-  //  GraficoDonaComponent
-  //  IncrementadorComponent
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     APP_ROUTES,
     PagesModule,
     FormsModule,
